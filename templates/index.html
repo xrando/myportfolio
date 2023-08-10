@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<div class="container mx-auto p-8">
+    <header class="text-center mb-6">
+        <img src="path/to/profile-picture.jpg" alt="Profile Picture" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h1 class="text-2xl font-semibold">Benjamin Loh Choon How</h1>
+        <p class="text-gray-600">Computing Science Undergraduate</p>
+    </header>
+
+    <section class="bg-white rounded-lg shadow p-6 mb-6" >
+        <h2 class="text-lg font-semibold mb-3">Contact Information</h2>
+        <address class="text-gray-600">
+            Email: your.email@example.com<br>
+            Phone: (123) 456-7890<br>
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/benjaminlohchoonhow" target="_blank"
+                   class="text-gray-600 hover:text-blue-500">
+                    <i class="fab fa-linkedin fa-lg mr-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/xrando" target="_blank"
+                   class="text-gray-600 hover:text-gray-800 ml-4">
+                    <i class="fab fa-github fa-lg mr-2"></i> GitHub
+                </a>
+            </div>
+        </address>
+    </section>
+
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-lg font-semibold mb-3">Education</h2>
+        <p class="text-gray-600"><strong>University Name</strong><br>
+            Bachelor of Science in Computer Science<br>
+            Graduation: May 20XX
+        </p>
+    </section>
+
+    <section class="bg-white rounded-lg shadow p-6" id="Contact">
+        <h2 class="text-lg font-semibold mb-3">Skills</h2>
+        <ul class="list-disc list-inside text-gray-600">
+            <li>Programming Languages: Python, Java, C++</li>
+            <li>Web Development: HTML, CSS, JavaScript, Django</li>
+            <li>Data Structures and Algorithms</li>
+            <li>Database Management: SQL</li>
+            <!-- Add more skills here -->
+        </ul>
+    </section>
+
+</div>
+
+
+{% endblock content %}
