@@ -1,19 +1,19 @@
 {% extends "_base.html" %}
-
+{% load static %}
 {% block content %}
 
 <div class="container mx-auto p-8">
     <header class="text-center mb-6">
-        <img src="path/to/profile-picture.jpg" alt="Profile Picture" class="w-24 h-24 mx-auto rounded-full mb-4">
-        <h1 class="text-2xl font-semibold">Benjamin Loh Choon How</h1>
-        <p class="text-gray-600">Computing Science Undergraduate</p>
+        <img src={% static profilePic %} alt="Profile Picture" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h1 class="text-2xl font-semibold">{{ name }}</h1>
+        <p class="text-gray-600">{{ course }}</p>
     </header>
 
-    <section class="bg-white rounded-lg shadow p-6 mb-6" >
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
         <h2 class="text-lg font-semibold mb-3">Contact Information</h2>
         <address class="text-gray-600">
-            Email: your.email@example.com<br>
-            Phone: (123) 456-7890<br>
+            Email: {{ email }}<br>
+            Phone: {{ phone }}<br>
             <div class="mt-2">
                 <a href="https://www.linkedin.com/in/benjaminlohchoonhow" target="_blank"
                    class="text-gray-600 hover:text-blue-500">
@@ -28,14 +28,34 @@
     </section>
 
     <section class="bg-white rounded-lg shadow p-6 mb-6">
-        <h2 class="text-lg font-semibold mb-3">Education</h2>
-        <p class="text-gray-600"><strong>University Name</strong><br>
-            Bachelor of Science in Computer Science<br>
-            Graduation: May 20XX
-        </p>
+        <h2 class="text-lg font-semibold mb-3">About me</h2>
+        <p class="text-gray-600">{{ description }}</p><br>
     </section>
 
-    <section class="bg-white rounded-lg shadow p-6" id="Contact">
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-lg font-semibold mb-3">Education</h2>
+        {% for x in education %}
+        {{ x.duration }}<br>
+        <p class="text-gray-600 mb-4"><strong>{{ x.school }}</strong><br>
+            {{ x.certification }}<br>
+        </p>
+        {% endfor %}
+    </section>
+
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-lg font-semibold mb-3">Experience</h2>
+        {% for x in experience %}
+        {{ x.duration }}<br>
+        <p class="text-gray-600 mb-4"><strong>{{ x.company }}</strong><br>
+            {{ x.position }}<br>
+            {% if x.skills %}
+            Skills: {{ x.skills }}<br>
+            {% endif %}
+        </p>
+        {% endfor %}
+    </section>
+
+    <section class="bg-white rounded-lg shadow p-6" id="skills">
         <h2 class="text-lg font-semibold mb-3">Skills</h2>
         <ul class="list-disc list-inside text-gray-600">
             <li>Programming Languages: Python, Java, C++</li>
