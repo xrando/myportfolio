@@ -15,11 +15,11 @@
             Email: {{ email }}<br>
             Phone: {{ phone }}<br>
             <div class="mt-2">
-                <a href="https://www.linkedin.com/in/benjaminlohchoonhow" target="_blank"
+                <a href={{ linkedinLink }} target="_blank"
                    class="text-gray-600 hover:text-blue-500">
                     <i class="fab fa-linkedin fa-lg mr-2"></i> LinkedIn
                 </a>
-                <a href="https://github.com/xrando" target="_blank"
+                <a href={{ githubLink }} target="_blank"
                    class="text-gray-600 hover:text-gray-800 ml-4">
                     <i class="fab fa-github fa-lg mr-2"></i> GitHub
                 </a>
@@ -32,7 +32,7 @@
         <p class="text-gray-600">{{ description }}</p><br>
     </section>
 
-    <section class="bg-white rounded-lg shadow p-6 mb-6">
+    <section class="bg-white rounded-lg shadow p-6 mb-6" id="education">
         <h2 class="text-lg font-semibold mb-3">Education</h2>
         {% for x in education %}
         {{ x.duration }}<br>
@@ -55,14 +55,38 @@
         {% endfor %}
     </section>
 
+    <section class="bg-white rounded-lg shadow p-6 mb-6" id="projects">
+        <h2 class="text-lg font-semibold mb-3">Projects</h2>
+        {% for x in project %}
+        {{ x.duration }}<br>
+        <p class="text-gray-600 mb-4"><strong>{{ x.name }}</strong><br>
+            {{ x.associated_with }}<br>
+            {% if x.description %}
+            {{ x.description }}<br>
+            {% endif %}
+        </p>
+        {% endfor %}
+    </section>
+
+    <section class="bg-white rounded-lg shadow p-6 mb-6" id="awards">
+        <h2 class="text-lg font-semibold mb-3">Awards</h2>
+        {% for x in awards %}
+        {{ x.duration }}<br>
+        <p class="text-gray-600 mb-4"><strong>{{ x.company }}</strong><br>
+            {{ x.position }}<br>
+            {% if x.skills %}
+            Skills: {{ x.skills }}<br>
+            {% endif %}
+        </p>
+        {% endfor %}
+    </section>
+
     <section class="bg-white rounded-lg shadow p-6" id="skills">
         <h2 class="text-lg font-semibold mb-3">Skills</h2>
         <ul class="list-disc list-inside text-gray-600">
-            <li>Programming Languages: Python, Java, C++</li>
-            <li>Web Development: HTML, CSS, JavaScript, Django</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Database Management: SQL</li>
-            <!-- Add more skills here -->
+            {% for i in skills %}
+            <li>{{ i }}</li>
+            {% endfor %}
         </ul>
     </section>
 
