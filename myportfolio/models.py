@@ -18,6 +18,7 @@ class experience(models.Model):
     duration = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
     skills = models.CharField(max_length=100, blank=True)
 
 class projects(models.Model):

@@ -29,7 +29,7 @@ def index(request):
         'project': projects[0]['projects'],
         'experience': experience[0]['experience'],
         'education': education[0]['education'],
-        #'awards': awards[0]['awards'],
+        'awards': awards[0]['awards'],
     }
 
     return HttpResponse(template.render(context, request))

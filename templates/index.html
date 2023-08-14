@@ -48,6 +48,7 @@
         {{ x.duration }}<br>
         <p class="text-gray-600 mb-4"><strong>{{ x.company }}</strong><br>
             {{ x.position }}<br>
+            {{ x.description }}<br>
             {% if x.skills %}
             Skills: {{ x.skills }}<br>
             {% endif %}
@@ -70,15 +71,26 @@
 
     <section class="bg-white rounded-lg shadow p-6 mb-6" id="awards">
         <h2 class="text-lg font-semibold mb-3">Awards</h2>
-        {% for x in awards %}
-        {{ x.duration }}<br>
-        <p class="text-gray-600 mb-4"><strong>{{ x.company }}</strong><br>
-            {{ x.position }}<br>
-            {% if x.skills %}
-            Skills: {{ x.skills }}<br>
-            {% endif %}
-        </p>
-        {% endfor %}
+        <ul class="list-disc">
+            {% for x in awards %}
+            <li class="text-gray-600 mb-4">{{ x.title }}<br>
+                {% if x.issuer %}
+                {{ x.issuer }}<br>
+                {% endif %}
+                {% if x.issuedDate %}
+                {{ x.issuedDate }}<br>
+                {% endif %}
+                {% if x.description %}
+                {{ x.description }}<br>
+                {% endif %}
+                {% if x.link %}
+                <a href={{ x.link }} target="_blank" class="text-gray-600 hover:text-blue-500">
+                    <i class="fas fa-link fa-lg mr-2"></i> View Certificate
+                </a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
     </section>
 
     <section class="bg-white rounded-lg shadow p-6" id="skills">
